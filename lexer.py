@@ -59,6 +59,7 @@ t_PARENINI  = r'\('
 t_PARENFIN  = r'\)'
 t_LLAVEINI  = r'\{'
 t_LLAVEFIN  = r'\}'
+t_COMA      = r','
 
 # Operadores aritméticos
 t_OP_ARIT   = r'(\+|\-|\*|/)'
