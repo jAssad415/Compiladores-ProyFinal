@@ -1,0 +1,23 @@
+/* Ejemplo completo y válido para el compilador de Joel */
+
+float x = 5.2;
+boolean flag = true;
+char c = 'a';
+
+println(x);
+println(min(3, 7));
+println(ceil(4.3));
+
+if (x >= 5) {
+    x = x + 1;
+    println(x);
+}
+
+while (x < 10) {
+    x = x + 0.5;
+    println(x);
+}
+
+flag = false;
+println(flag);
+println(c);

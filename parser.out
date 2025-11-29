@@ -1,0 +1,1719 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> items
+Rule 2     items -> items item
+Rule 3     items -> item
+Rule 4     item -> declaration
+Rule 5     item -> statement
+Rule 6     declaration -> type IDENT ASIGN expression PUNTOCOM
+Rule 7     declaration -> type IDENT PUNTOCOM
+Rule 8     type -> FLOAT
+Rule 9     type -> BOOLEAN
+Rule 10    type -> CHAR
+Rule 11    statement -> assignment PUNTOCOM
+Rule 12    statement -> println_stmt PUNTOCOM
+Rule 13    statement -> if_stmt
+Rule 14    statement -> while_stmt
+Rule 15    statement -> block
+Rule 16    assignment -> IDENT ASIGN expression
+Rule 17    println_stmt -> PRINTLN PARENINI PARENFIN
+Rule 18    println_stmt -> PRINTLN PARENINI arg_list PARENFIN
+Rule 19    arg_list -> arg_list COMA expression
+Rule 20    arg_list -> expression
+Rule 21    if_stmt -> IF PARENINI expression PARENFIN statement
+Rule 22    while_stmt -> WHILE PARENINI expression PARENFIN statement
+Rule 23    block -> LLAVEINI items LLAVEFIN
+Rule 24    expression -> logic_or
+Rule 25    logic_or -> logic_or OP_LOG logic_and
+Rule 26    logic_or -> logic_and
+Rule 27    logic_and -> logic_and OP_LOG logic_not
+Rule 28    logic_and -> logic_not
+Rule 29    logic_not -> OP_LOG logic_not
+Rule 30    logic_not -> rel
+Rule 31    rel -> rel OP_REL add
+Rule 32    rel -> add
+Rule 33    add -> add OP_ARIT mul
+Rule 34    add -> mul
+Rule 35    mul -> mul OP_ARIT unary
+Rule 36    mul -> unary
+Rule 37    unary -> OP_ARIT unary
+Rule 38    unary -> primary
+Rule 39    primary -> IDENT
+Rule 40    primary -> NUM
+Rule 41    primary -> BOOL
+Rule 42    primary -> CHARLIT
+Rule 43    primary -> PARENINI expression PARENFIN
+Rule 44    primary -> MIN PARENINI expression COMA expression PARENFIN
+Rule 45    primary -> CEIL PARENINI expression PARENFIN
+
+Terminals, with rules where they appear
+
+ASIGN                : 6 16
+BOOL                 : 41
+BOOLEAN              : 9
+CEIL                 : 45
+CHAR                 : 10
+CHARLIT              : 42
+COMA                 : 19 44
+FLOAT                : 8
+IDENT                : 6 7 16 39
+IF                   : 21
+LLAVEFIN             : 23
+LLAVEINI             : 23
+MIN                  : 44
+NUM                  : 40
+OP_ARIT              : 33 35 37
+OP_LOG               : 25 27 29
+OP_REL               : 31
+PARENFIN             : 17 18 21 22 43 44 45
+PARENINI             : 17 18 21 22 43 44 45
+PRINTLN              : 17 18
+PUNTOCOM             : 6 7 11 12
+WHILE                : 22
+error                : 
+
+Nonterminals, with rules where they appear
+
+add                  : 31 32 33
+arg_list             : 18 19
+assignment           : 11
+block                : 15
+declaration          : 4
+expression           : 6 16 19 20 21 22 43 44 44 45
+if_stmt              : 13
+item                 : 2 3
+items                : 1 2 23
+logic_and            : 25 26 27
+logic_not            : 27 28 29
+logic_or             : 24 25
+mul                  : 33 34 35
+primary              : 38
+println_stmt         : 12
+program              : 0
+rel                  : 30 31
+statement            : 5 21 22
+type                 : 6 7
+unary                : 35 36 37
+while_stmt           : 14
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . items
+    (2) items -> . items item
+    (3) items -> . item
+    (4) item -> . declaration
+    (5) item -> . statement
+    (6) declaration -> . type IDENT ASIGN expression PUNTOCOM
+    (7) declaration -> . type IDENT PUNTOCOM
+    (11) statement -> . assignment PUNTOCOM
+    (12) statement -> . println_stmt PUNTOCOM
+    (13) statement -> . if_stmt
+    (14) statement -> . while_stmt
+    (15) statement -> . block
+    (8) type -> . FLOAT
+    (9) type -> . BOOLEAN
+    (10) type -> . CHAR
+    (16) assignment -> . IDENT ASIGN expression
+    (17) println_stmt -> . PRINTLN PARENINI PARENFIN
+    (18) println_stmt -> . PRINTLN PARENINI arg_list PARENFIN
+    (21) if_stmt -> . IF PARENINI expression PARENFIN statement
+    (22) while_stmt -> . WHILE PARENINI expression PARENFIN statement
+    (23) block -> . LLAVEINI items LLAVEFIN
+
+    FLOAT           shift and go to state 13
+    BOOLEAN         shift and go to state 14
+    CHAR            shift and go to state 15
+    IDENT           shift and go to state 7
+    PRINTLN         shift and go to state 16
+    IF              shift and go to state 17
+    WHILE           shift and go to state 18
+    LLAVEINI        shift and go to state 19
+
+    program                        shift and go to state 1
+    items                          shift and go to state 2
+    item                           shift and go to state 3
+    declaration                    shift and go to state 4
+    statement                      shift and go to state 5
+    type                           shift and go to state 6
+    assignment                     shift and go to state 8
+    println_stmt                   shift and go to state 9
+    if_stmt                        shift and go to state 10
+    while_stmt                     shift and go to state 11
+    block                          shift and go to state 12
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> items .
+    (2) items -> items . item
+    (4) item -> . declaration
+    (5) item -> . statement
+    (6) declaration -> . type IDENT ASIGN expression PUNTOCOM
+    (7) declaration -> . type IDENT PUNTOCOM
+    (11) statement -> . assignment PUNTOCOM
+    (12) statement -> . println_stmt PUNTOCOM
+    (13) statement -> . if_stmt
+    (14) statement -> . while_stmt
+    (15) statement -> . block
+    (8) type -> . FLOAT
+    (9) type -> . BOOLEAN
+    (10) type -> . CHAR
+    (16) assignment -> . IDENT ASIGN expression
+    (17) println_stmt -> . PRINTLN PARENINI PARENFIN
+    (18) println_stmt -> . PRINTLN PARENINI arg_list PARENFIN
+    (21) if_stmt -> . IF PARENINI expression PARENFIN statement
+    (22) while_stmt -> . WHILE PARENINI expression PARENFIN statement
+    (23) block -> . LLAVEINI items LLAVEFIN
+
+    $end            reduce using rule 1 (program -> items .)
+    FLOAT           shift and go to state 13
+    BOOLEAN         shift and go to state 14
+    CHAR            shift and go to state 15
+    IDENT           shift and go to state 7
+    PRINTLN         shift and go to state 16
+    IF              shift and go to state 17
+    WHILE           shift and go to state 18
+    LLAVEINI        shift and go to state 19
+
+    item                           shift and go to state 20
+    declaration                    shift and go to state 4
+    statement                      shift and go to state 5
+    type                           shift and go to state 6
+    assignment                     shift and go to state 8
+    println_stmt                   shift and go to state 9
+    if_stmt                        shift and go to state 10
+    while_stmt                     shift and go to state 11
+    block                          shift and go to state 12
+
+state 3
+
+    (3) items -> item .
+
+    FLOAT           reduce using rule 3 (items -> item .)
+    BOOLEAN         reduce using rule 3 (items -> item .)
+    CHAR            reduce using rule 3 (items -> item .)
+    IDENT           reduce using rule 3 (items -> item .)
+    PRINTLN         reduce using rule 3 (items -> item .)
+    IF              reduce using rule 3 (items -> item .)
+    WHILE           reduce using rule 3 (items -> item .)
+    LLAVEINI        reduce using rule 3 (items -> item .)
+    $end            reduce using rule 3 (items -> item .)
+    LLAVEFIN        reduce using rule 3 (items -> item .)
+
+
+state 4
+
+    (4) item -> declaration .
+
+    FLOAT           reduce using rule 4 (item -> declaration .)
+    BOOLEAN         reduce using rule 4 (item -> declaration .)
+    CHAR            reduce using rule 4 (item -> declaration .)
+    IDENT           reduce using rule 4 (item -> declaration .)
+    PRINTLN         reduce using rule 4 (item -> declaration .)
+    IF              reduce using rule 4 (item -> declaration .)
+    WHILE           reduce using rule 4 (item -> declaration .)
+    LLAVEINI        reduce using rule 4 (item -> declaration .)
+    $end            reduce using rule 4 (item -> declaration .)
+    LLAVEFIN        reduce using rule 4 (item -> declaration .)
+
+
+state 5
+
+    (5) item -> statement .
+
+    FLOAT           reduce using rule 5 (item -> statement .)
+    BOOLEAN         reduce using rule 5 (item -> statement .)
+    CHAR            reduce using rule 5 (item -> statement .)
+    IDENT           reduce using rule 5 (item -> statement .)
+    PRINTLN         reduce using rule 5 (item -> statement .)
+    IF              reduce using rule 5 (item -> statement .)
+    WHILE           reduce using rule 5 (item -> statement .)
+    LLAVEINI        reduce using rule 5 (item -> statement .)
+    $end            reduce using rule 5 (item -> statement .)
+    LLAVEFIN        reduce using rule 5 (item -> statement .)
+
+
+state 6
+
+    (6) declaration -> type . IDENT ASIGN expression PUNTOCOM
+    (7) declaration -> type . IDENT PUNTOCOM
+
+    IDENT           shift and go to state 21
+
+
+state 7
+
+    (16) assignment -> IDENT . ASIGN expression
+
+    ASIGN           shift and go to state 22
+
+
+state 8
+
+    (11) statement -> assignment . PUNTOCOM
+
+    PUNTOCOM        shift and go to state 23
+
+
+state 9
+
+    (12) statement -> println_stmt . PUNTOCOM
+
+    PUNTOCOM        shift and go to state 24
+
+
+state 10
+
+    (13) statement -> if_stmt .
+
+    FLOAT           reduce using rule 13 (statement -> if_stmt .)
+    BOOLEAN         reduce using rule 13 (statement -> if_stmt .)
+    CHAR            reduce using rule 13 (statement -> if_stmt .)
+    IDENT           reduce using rule 13 (statement -> if_stmt .)
+    PRINTLN         reduce using rule 13 (statement -> if_stmt .)
+    IF              reduce using rule 13 (statement -> if_stmt .)
+    WHILE           reduce using rule 13 (statement -> if_stmt .)
+    LLAVEINI        reduce using rule 13 (statement -> if_stmt .)
+    $end            reduce using rule 13 (statement -> if_stmt .)
+    LLAVEFIN        reduce using rule 13 (statement -> if_stmt .)
+
+
+state 11
+
+    (14) statement -> while_stmt .
+
+    FLOAT           reduce using rule 14 (statement -> while_stmt .)
+    BOOLEAN         reduce using rule 14 (statement -> while_stmt .)
+    CHAR            reduce using rule 14 (statement -> while_stmt .)
+    IDENT           reduce using rule 14 (statement -> while_stmt .)
+    PRINTLN         reduce using rule 14 (statement -> while_stmt .)
+    IF              reduce using rule 14 (statement -> while_stmt .)
+    WHILE           reduce using rule 14 (statement -> while_stmt .)
+    LLAVEINI        reduce using rule 14 (statement -> while_stmt .)
+    $end            reduce using rule 14 (statement -> while_stmt .)
+    LLAVEFIN        reduce using rule 14 (statement -> while_stmt .)
+
+
+state 12
+
+    (15) statement -> block .
+
+    FLOAT           reduce using rule 15 (statement -> block .)
+    BOOLEAN         reduce using rule 15 (statement -> block .)
+    CHAR            reduce using rule 15 (statement -> block .)
+    IDENT           reduce using rule 15 (statement -> block .)
+    PRINTLN         reduce using rule 15 (statement -> block .)
+    IF              reduce using rule 15 (statement -> block .)
+    WHILE           reduce using rule 15 (statement -> block .)
+    LLAVEINI        reduce using rule 15 (statement -> block .)
+    $end            reduce using rule 15 (statement -> block .)
+    LLAVEFIN        reduce using rule 15 (statement -> block .)
+
+
+state 13
+
+    (8) type -> FLOAT .
+
+    IDENT           reduce using rule 8 (type -> FLOAT .)
+
+
+state 14
+
+    (9) type -> BOOLEAN .
+
+    IDENT           reduce using rule 9 (type -> BOOLEAN .)
+
+
+state 15
+
+    (10) type -> CHAR .
+
+    IDENT           reduce using rule 10 (type -> CHAR .)
+
+
+state 16
+
+    (17) println_stmt -> PRINTLN . PARENINI PARENFIN
+    (18) println_stmt -> PRINTLN . PARENINI arg_list PARENFIN
+
+    PARENINI        shift and go to state 25
+
+
+state 17
+
+    (21) if_stmt -> IF . PARENINI expression PARENFIN statement
+
+    PARENINI        shift and go to state 26
+
+
+state 18
+
+    (22) while_stmt -> WHILE . PARENINI expression PARENFIN statement
+
+    PARENINI        shift and go to state 27
+
+
+state 19
+
+    (23) block -> LLAVEINI . items LLAVEFIN
+    (2) items -> . items item
+    (3) items -> . item
+    (4) item -> . declaration
+    (5) item -> . statement
+    (6) declaration -> . type IDENT ASIGN expression PUNTOCOM
+    (7) declaration -> . type IDENT PUNTOCOM
+    (11) statement -> . assignment PUNTOCOM
+    (12) statement -> . println_stmt PUNTOCOM
+    (13) statement -> . if_stmt
+    (14) statement -> . while_stmt
+    (15) statement -> . block
+    (8) type -> . FLOAT
+    (9) type -> . BOOLEAN
+    (10) type -> . CHAR
+    (16) assignment -> . IDENT ASIGN expression
+    (17) println_stmt -> . PRINTLN PARENINI PARENFIN
+    (18) println_stmt -> . PRINTLN PARENINI arg_list PARENFIN
+    (21) if_stmt -> . IF PARENINI expression PARENFIN statement
+    (22) while_stmt -> . WHILE PARENINI expression PARENFIN statement
+    (23) block -> . LLAVEINI items LLAVEFIN
+
+    FLOAT           shift and go to state 13
+    BOOLEAN         shift and go to state 14
+    CHAR            shift and go to state 15
+    IDENT           shift and go to state 7
+    PRINTLN         shift and go to state 16
+    IF              shift and go to state 17
+    WHILE           shift and go to state 18
+    LLAVEINI        shift and go to state 19
+
+    items                          shift and go to state 28
+    item                           shift and go to state 3
+    declaration                    shift and go to state 4
+    statement                      shift and go to state 5
+    type                           shift and go to state 6
+    assignment                     shift and go to state 8
+    println_stmt                   shift and go to state 9
+    if_stmt                        shift and go to state 10
+    while_stmt                     shift and go to state 11
+    block                          shift and go to state 12
+
+state 20
+
+    (2) items -> items item .
+
+    FLOAT           reduce using rule 2 (items -> items item .)
+    BOOLEAN         reduce using rule 2 (items -> items item .)
+    CHAR            reduce using rule 2 (items -> items item .)
+    IDENT           reduce using rule 2 (items -> items item .)
+    PRINTLN         reduce using rule 2 (items -> items item .)
+    IF              reduce using rule 2 (items -> items item .)
+    WHILE           reduce using rule 2 (items -> items item .)
+    LLAVEINI        reduce using rule 2 (items -> items item .)
+    $end            reduce using rule 2 (items -> items item .)
+    LLAVEFIN        reduce using rule 2 (items -> items item .)
+
+
+state 21
+
+    (6) declaration -> type IDENT . ASIGN expression PUNTOCOM
+    (7) declaration -> type IDENT . PUNTOCOM
+
+    ASIGN           shift and go to state 29
+    PUNTOCOM        shift and go to state 30
+
+
+state 22
+
+    (16) assignment -> IDENT ASIGN . expression
+    (24) expression -> . logic_or
+    (25) logic_or -> . logic_or OP_LOG logic_and
+    (26) logic_or -> . logic_and
+    (27) logic_and -> . logic_and OP_LOG logic_not
+    (28) logic_and -> . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    expression                     shift and go to state 32
+    logic_or                       shift and go to state 33
+    logic_and                      shift and go to state 35
+    logic_not                      shift and go to state 36
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 23
+
+    (11) statement -> assignment PUNTOCOM .
+
+    FLOAT           reduce using rule 11 (statement -> assignment PUNTOCOM .)
+    BOOLEAN         reduce using rule 11 (statement -> assignment PUNTOCOM .)
+    CHAR            reduce using rule 11 (statement -> assignment PUNTOCOM .)
+    IDENT           reduce using rule 11 (statement -> assignment PUNTOCOM .)
+    PRINTLN         reduce using rule 11 (statement -> assignment PUNTOCOM .)
+    IF              reduce using rule 11 (statement -> assignment PUNTOCOM .)
+    WHILE           reduce using rule 11 (statement -> assignment PUNTOCOM .)
+    LLAVEINI        reduce using rule 11 (statement -> assignment PUNTOCOM .)
+    $end            reduce using rule 11 (statement -> assignment PUNTOCOM .)
+    LLAVEFIN        reduce using rule 11 (statement -> assignment PUNTOCOM .)
+
+
+state 24
+
+    (12) statement -> println_stmt PUNTOCOM .
+
+    FLOAT           reduce using rule 12 (statement -> println_stmt PUNTOCOM .)
+    BOOLEAN         reduce using rule 12 (statement -> println_stmt PUNTOCOM .)
+    CHAR            reduce using rule 12 (statement -> println_stmt PUNTOCOM .)
+    IDENT           reduce using rule 12 (statement -> println_stmt PUNTOCOM .)
+    PRINTLN         reduce using rule 12 (statement -> println_stmt PUNTOCOM .)
+    IF              reduce using rule 12 (statement -> println_stmt PUNTOCOM .)
+    WHILE           reduce using rule 12 (statement -> println_stmt PUNTOCOM .)
+    LLAVEINI        reduce using rule 12 (statement -> println_stmt PUNTOCOM .)
+    $end            reduce using rule 12 (statement -> println_stmt PUNTOCOM .)
+    LLAVEFIN        reduce using rule 12 (statement -> println_stmt PUNTOCOM .)
+
+
+state 25
+
+    (17) println_stmt -> PRINTLN PARENINI . PARENFIN
+    (18) println_stmt -> PRINTLN PARENINI . arg_list PARENFIN
+    (19) arg_list -> . arg_list COMA expression
+    (20) arg_list -> . expression
+    (24) expression -> . logic_or
+    (25) logic_or -> . logic_or OP_LOG logic_and
+    (26) logic_or -> . logic_and
+    (27) logic_and -> . logic_and OP_LOG logic_not
+    (28) logic_and -> . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    PARENFIN        shift and go to state 49
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    arg_list                       shift and go to state 50
+    expression                     shift and go to state 51
+    logic_or                       shift and go to state 33
+    logic_and                      shift and go to state 35
+    logic_not                      shift and go to state 36
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 26
+
+    (21) if_stmt -> IF PARENINI . expression PARENFIN statement
+    (24) expression -> . logic_or
+    (25) logic_or -> . logic_or OP_LOG logic_and
+    (26) logic_or -> . logic_and
+    (27) logic_and -> . logic_and OP_LOG logic_not
+    (28) logic_and -> . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    expression                     shift and go to state 52
+    logic_or                       shift and go to state 33
+    logic_and                      shift and go to state 35
+    logic_not                      shift and go to state 36
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 27
+
+    (22) while_stmt -> WHILE PARENINI . expression PARENFIN statement
+    (24) expression -> . logic_or
+    (25) logic_or -> . logic_or OP_LOG logic_and
+    (26) logic_or -> . logic_and
+    (27) logic_and -> . logic_and OP_LOG logic_not
+    (28) logic_and -> . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    expression                     shift and go to state 53
+    logic_or                       shift and go to state 33
+    logic_and                      shift and go to state 35
+    logic_not                      shift and go to state 36
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 28
+
+    (23) block -> LLAVEINI items . LLAVEFIN
+    (2) items -> items . item
+    (4) item -> . declaration
+    (5) item -> . statement
+    (6) declaration -> . type IDENT ASIGN expression PUNTOCOM
+    (7) declaration -> . type IDENT PUNTOCOM
+    (11) statement -> . assignment PUNTOCOM
+    (12) statement -> . println_stmt PUNTOCOM
+    (13) statement -> . if_stmt
+    (14) statement -> . while_stmt
+    (15) statement -> . block
+    (8) type -> . FLOAT
+    (9) type -> . BOOLEAN
+    (10) type -> . CHAR
+    (16) assignment -> . IDENT ASIGN expression
+    (17) println_stmt -> . PRINTLN PARENINI PARENFIN
+    (18) println_stmt -> . PRINTLN PARENINI arg_list PARENFIN
+    (21) if_stmt -> . IF PARENINI expression PARENFIN statement
+    (22) while_stmt -> . WHILE PARENINI expression PARENFIN statement
+    (23) block -> . LLAVEINI items LLAVEFIN
+
+    LLAVEFIN        shift and go to state 54
+    FLOAT           shift and go to state 13
+    BOOLEAN         shift and go to state 14
+    CHAR            shift and go to state 15
+    IDENT           shift and go to state 7
+    PRINTLN         shift and go to state 16
+    IF              shift and go to state 17
+    WHILE           shift and go to state 18
+    LLAVEINI        shift and go to state 19
+
+    item                           shift and go to state 20
+    declaration                    shift and go to state 4
+    statement                      shift and go to state 5
+    type                           shift and go to state 6
+    assignment                     shift and go to state 8
+    println_stmt                   shift and go to state 9
+    if_stmt                        shift and go to state 10
+    while_stmt                     shift and go to state 11
+    block                          shift and go to state 12
+
+state 29
+
+    (6) declaration -> type IDENT ASIGN . expression PUNTOCOM
+    (24) expression -> . logic_or
+    (25) logic_or -> . logic_or OP_LOG logic_and
+    (26) logic_or -> . logic_and
+    (27) logic_and -> . logic_and OP_LOG logic_not
+    (28) logic_and -> . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    expression                     shift and go to state 55
+    logic_or                       shift and go to state 33
+    logic_and                      shift and go to state 35
+    logic_not                      shift and go to state 36
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 30
+
+    (7) declaration -> type IDENT PUNTOCOM .
+
+    FLOAT           reduce using rule 7 (declaration -> type IDENT PUNTOCOM .)
+    BOOLEAN         reduce using rule 7 (declaration -> type IDENT PUNTOCOM .)
+    CHAR            reduce using rule 7 (declaration -> type IDENT PUNTOCOM .)
+    IDENT           reduce using rule 7 (declaration -> type IDENT PUNTOCOM .)
+    PRINTLN         reduce using rule 7 (declaration -> type IDENT PUNTOCOM .)
+    IF              reduce using rule 7 (declaration -> type IDENT PUNTOCOM .)
+    WHILE           reduce using rule 7 (declaration -> type IDENT PUNTOCOM .)
+    LLAVEINI        reduce using rule 7 (declaration -> type IDENT PUNTOCOM .)
+    $end            reduce using rule 7 (declaration -> type IDENT PUNTOCOM .)
+    LLAVEFIN        reduce using rule 7 (declaration -> type IDENT PUNTOCOM .)
+
+
+state 31
+
+    (39) primary -> IDENT .
+
+    OP_ARIT         reduce using rule 39 (primary -> IDENT .)
+    OP_REL          reduce using rule 39 (primary -> IDENT .)
+    OP_LOG          reduce using rule 39 (primary -> IDENT .)
+    PUNTOCOM        reduce using rule 39 (primary -> IDENT .)
+    PARENFIN        reduce using rule 39 (primary -> IDENT .)
+    COMA            reduce using rule 39 (primary -> IDENT .)
+
+
+state 32
+
+    (16) assignment -> IDENT ASIGN expression .
+
+    PUNTOCOM        reduce using rule 16 (assignment -> IDENT ASIGN expression .)
+
+
+state 33
+
+    (24) expression -> logic_or .
+    (25) logic_or -> logic_or . OP_LOG logic_and
+
+    PUNTOCOM        reduce using rule 24 (expression -> logic_or .)
+    PARENFIN        reduce using rule 24 (expression -> logic_or .)
+    COMA            reduce using rule 24 (expression -> logic_or .)
+    OP_LOG          shift and go to state 56
+
+
+state 34
+
+    (29) logic_not -> OP_LOG . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    logic_not                      shift and go to state 57
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 35
+
+    (26) logic_or -> logic_and .
+    (27) logic_and -> logic_and . OP_LOG logic_not
+
+  ! shift/reduce conflict for OP_LOG resolved as shift
+    PUNTOCOM        reduce using rule 26 (logic_or -> logic_and .)
+    PARENFIN        reduce using rule 26 (logic_or -> logic_and .)
+    COMA            reduce using rule 26 (logic_or -> logic_and .)
+    OP_LOG          shift and go to state 58
+
+  ! OP_LOG          [ reduce using rule 26 (logic_or -> logic_and .) ]
+
+
+state 36
+
+    (28) logic_and -> logic_not .
+
+    OP_LOG          reduce using rule 28 (logic_and -> logic_not .)
+    PUNTOCOM        reduce using rule 28 (logic_and -> logic_not .)
+    PARENFIN        reduce using rule 28 (logic_and -> logic_not .)
+    COMA            reduce using rule 28 (logic_and -> logic_not .)
+
+
+state 37
+
+    (30) logic_not -> rel .
+    (31) rel -> rel . OP_REL add
+
+    OP_LOG          reduce using rule 30 (logic_not -> rel .)
+    PUNTOCOM        reduce using rule 30 (logic_not -> rel .)
+    PARENFIN        reduce using rule 30 (logic_not -> rel .)
+    COMA            reduce using rule 30 (logic_not -> rel .)
+    OP_REL          shift and go to state 59
+
+
+state 38
+
+    (32) rel -> add .
+    (33) add -> add . OP_ARIT mul
+
+    OP_REL          reduce using rule 32 (rel -> add .)
+    OP_LOG          reduce using rule 32 (rel -> add .)
+    PUNTOCOM        reduce using rule 32 (rel -> add .)
+    PARENFIN        reduce using rule 32 (rel -> add .)
+    COMA            reduce using rule 32 (rel -> add .)
+    OP_ARIT         shift and go to state 60
+
+
+state 39
+
+    (37) unary -> OP_ARIT . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    unary                          shift and go to state 61
+    primary                        shift and go to state 42
+
+state 40
+
+    (34) add -> mul .
+    (35) mul -> mul . OP_ARIT unary
+
+  ! shift/reduce conflict for OP_ARIT resolved as shift
+    OP_REL          reduce using rule 34 (add -> mul .)
+    OP_LOG          reduce using rule 34 (add -> mul .)
+    PUNTOCOM        reduce using rule 34 (add -> mul .)
+    PARENFIN        reduce using rule 34 (add -> mul .)
+    COMA            reduce using rule 34 (add -> mul .)
+    OP_ARIT         shift and go to state 62
+
+  ! OP_ARIT         [ reduce using rule 34 (add -> mul .) ]
+
+
+state 41
+
+    (36) mul -> unary .
+
+    OP_ARIT         reduce using rule 36 (mul -> unary .)
+    OP_REL          reduce using rule 36 (mul -> unary .)
+    OP_LOG          reduce using rule 36 (mul -> unary .)
+    PUNTOCOM        reduce using rule 36 (mul -> unary .)
+    PARENFIN        reduce using rule 36 (mul -> unary .)
+    COMA            reduce using rule 36 (mul -> unary .)
+
+
+state 42
+
+    (38) unary -> primary .
+
+    OP_ARIT         reduce using rule 38 (unary -> primary .)
+    OP_REL          reduce using rule 38 (unary -> primary .)
+    OP_LOG          reduce using rule 38 (unary -> primary .)
+    PUNTOCOM        reduce using rule 38 (unary -> primary .)
+    PARENFIN        reduce using rule 38 (unary -> primary .)
+    COMA            reduce using rule 38 (unary -> primary .)
+
+
+state 43
+
+    (40) primary -> NUM .
+
+    OP_ARIT         reduce using rule 40 (primary -> NUM .)
+    OP_REL          reduce using rule 40 (primary -> NUM .)
+    OP_LOG          reduce using rule 40 (primary -> NUM .)
+    PUNTOCOM        reduce using rule 40 (primary -> NUM .)
+    PARENFIN        reduce using rule 40 (primary -> NUM .)
+    COMA            reduce using rule 40 (primary -> NUM .)
+
+
+state 44
+
+    (41) primary -> BOOL .
+
+    OP_ARIT         reduce using rule 41 (primary -> BOOL .)
+    OP_REL          reduce using rule 41 (primary -> BOOL .)
+    OP_LOG          reduce using rule 41 (primary -> BOOL .)
+    PUNTOCOM        reduce using rule 41 (primary -> BOOL .)
+    PARENFIN        reduce using rule 41 (primary -> BOOL .)
+    COMA            reduce using rule 41 (primary -> BOOL .)
+
+
+state 45
+
+    (42) primary -> CHARLIT .
+
+    OP_ARIT         reduce using rule 42 (primary -> CHARLIT .)
+    OP_REL          reduce using rule 42 (primary -> CHARLIT .)
+    OP_LOG          reduce using rule 42 (primary -> CHARLIT .)
+    PUNTOCOM        reduce using rule 42 (primary -> CHARLIT .)
+    PARENFIN        reduce using rule 42 (primary -> CHARLIT .)
+    COMA            reduce using rule 42 (primary -> CHARLIT .)
+
+
+state 46
+
+    (43) primary -> PARENINI . expression PARENFIN
+    (24) expression -> . logic_or
+    (25) logic_or -> . logic_or OP_LOG logic_and
+    (26) logic_or -> . logic_and
+    (27) logic_and -> . logic_and OP_LOG logic_not
+    (28) logic_and -> . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    expression                     shift and go to state 63
+    logic_or                       shift and go to state 33
+    logic_and                      shift and go to state 35
+    logic_not                      shift and go to state 36
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 47
+
+    (44) primary -> MIN . PARENINI expression COMA expression PARENFIN
+
+    PARENINI        shift and go to state 64
+
+
+state 48
+
+    (45) primary -> CEIL . PARENINI expression PARENFIN
+
+    PARENINI        shift and go to state 65
+
+
+state 49
+
+    (17) println_stmt -> PRINTLN PARENINI PARENFIN .
+
+    PUNTOCOM        reduce using rule 17 (println_stmt -> PRINTLN PARENINI PARENFIN .)
+
+
+state 50
+
+    (18) println_stmt -> PRINTLN PARENINI arg_list . PARENFIN
+    (19) arg_list -> arg_list . COMA expression
+
+    PARENFIN        shift and go to state 66
+    COMA            shift and go to state 67
+
+
+state 51
+
+    (20) arg_list -> expression .
+
+    PARENFIN        reduce using rule 20 (arg_list -> expression .)
+    COMA            reduce using rule 20 (arg_list -> expression .)
+
+
+state 52
+
+    (21) if_stmt -> IF PARENINI expression . PARENFIN statement
+
+    PARENFIN        shift and go to state 68
+
+
+state 53
+
+    (22) while_stmt -> WHILE PARENINI expression . PARENFIN statement
+
+    PARENFIN        shift and go to state 69
+
+
+state 54
+
+    (23) block -> LLAVEINI items LLAVEFIN .
+
+    FLOAT           reduce using rule 23 (block -> LLAVEINI items LLAVEFIN .)
+    BOOLEAN         reduce using rule 23 (block -> LLAVEINI items LLAVEFIN .)
+    CHAR            reduce using rule 23 (block -> LLAVEINI items LLAVEFIN .)
+    IDENT           reduce using rule 23 (block -> LLAVEINI items LLAVEFIN .)
+    PRINTLN         reduce using rule 23 (block -> LLAVEINI items LLAVEFIN .)
+    IF              reduce using rule 23 (block -> LLAVEINI items LLAVEFIN .)
+    WHILE           reduce using rule 23 (block -> LLAVEINI items LLAVEFIN .)
+    LLAVEINI        reduce using rule 23 (block -> LLAVEINI items LLAVEFIN .)
+    $end            reduce using rule 23 (block -> LLAVEINI items LLAVEFIN .)
+    LLAVEFIN        reduce using rule 23 (block -> LLAVEINI items LLAVEFIN .)
+
+
+state 55
+
+    (6) declaration -> type IDENT ASIGN expression . PUNTOCOM
+
+    PUNTOCOM        shift and go to state 70
+
+
+state 56
+
+    (25) logic_or -> logic_or OP_LOG . logic_and
+    (27) logic_and -> . logic_and OP_LOG logic_not
+    (28) logic_and -> . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    logic_and                      shift and go to state 71
+    logic_not                      shift and go to state 36
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 57
+
+    (29) logic_not -> OP_LOG logic_not .
+
+    OP_LOG          reduce using rule 29 (logic_not -> OP_LOG logic_not .)
+    PUNTOCOM        reduce using rule 29 (logic_not -> OP_LOG logic_not .)
+    PARENFIN        reduce using rule 29 (logic_not -> OP_LOG logic_not .)
+    COMA            reduce using rule 29 (logic_not -> OP_LOG logic_not .)
+
+
+state 58
+
+    (27) logic_and -> logic_and OP_LOG . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    logic_not                      shift and go to state 72
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 59
+
+    (31) rel -> rel OP_REL . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    add                            shift and go to state 73
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 60
+
+    (33) add -> add OP_ARIT . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    mul                            shift and go to state 74
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 61
+
+    (37) unary -> OP_ARIT unary .
+
+    OP_ARIT         reduce using rule 37 (unary -> OP_ARIT unary .)
+    OP_REL          reduce using rule 37 (unary -> OP_ARIT unary .)
+    OP_LOG          reduce using rule 37 (unary -> OP_ARIT unary .)
+    PUNTOCOM        reduce using rule 37 (unary -> OP_ARIT unary .)
+    PARENFIN        reduce using rule 37 (unary -> OP_ARIT unary .)
+    COMA            reduce using rule 37 (unary -> OP_ARIT unary .)
+
+
+state 62
+
+    (35) mul -> mul OP_ARIT . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    unary                          shift and go to state 75
+    primary                        shift and go to state 42
+
+state 63
+
+    (43) primary -> PARENINI expression . PARENFIN
+
+    PARENFIN        shift and go to state 76
+
+
+state 64
+
+    (44) primary -> MIN PARENINI . expression COMA expression PARENFIN
+    (24) expression -> . logic_or
+    (25) logic_or -> . logic_or OP_LOG logic_and
+    (26) logic_or -> . logic_and
+    (27) logic_and -> . logic_and OP_LOG logic_not
+    (28) logic_and -> . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    expression                     shift and go to state 77
+    logic_or                       shift and go to state 33
+    logic_and                      shift and go to state 35
+    logic_not                      shift and go to state 36
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 65
+
+    (45) primary -> CEIL PARENINI . expression PARENFIN
+    (24) expression -> . logic_or
+    (25) logic_or -> . logic_or OP_LOG logic_and
+    (26) logic_or -> . logic_and
+    (27) logic_and -> . logic_and OP_LOG logic_not
+    (28) logic_and -> . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    expression                     shift and go to state 78
+    logic_or                       shift and go to state 33
+    logic_and                      shift and go to state 35
+    logic_not                      shift and go to state 36
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 66
+
+    (18) println_stmt -> PRINTLN PARENINI arg_list PARENFIN .
+
+    PUNTOCOM        reduce using rule 18 (println_stmt -> PRINTLN PARENINI arg_list PARENFIN .)
+
+
+state 67
+
+    (19) arg_list -> arg_list COMA . expression
+    (24) expression -> . logic_or
+    (25) logic_or -> . logic_or OP_LOG logic_and
+    (26) logic_or -> . logic_and
+    (27) logic_and -> . logic_and OP_LOG logic_not
+    (28) logic_and -> . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    expression                     shift and go to state 79
+    logic_or                       shift and go to state 33
+    logic_and                      shift and go to state 35
+    logic_not                      shift and go to state 36
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 68
+
+    (21) if_stmt -> IF PARENINI expression PARENFIN . statement
+    (11) statement -> . assignment PUNTOCOM
+    (12) statement -> . println_stmt PUNTOCOM
+    (13) statement -> . if_stmt
+    (14) statement -> . while_stmt
+    (15) statement -> . block
+    (16) assignment -> . IDENT ASIGN expression
+    (17) println_stmt -> . PRINTLN PARENINI PARENFIN
+    (18) println_stmt -> . PRINTLN PARENINI arg_list PARENFIN
+    (21) if_stmt -> . IF PARENINI expression PARENFIN statement
+    (22) while_stmt -> . WHILE PARENINI expression PARENFIN statement
+    (23) block -> . LLAVEINI items LLAVEFIN
+
+    IDENT           shift and go to state 7
+    PRINTLN         shift and go to state 16
+    IF              shift and go to state 17
+    WHILE           shift and go to state 18
+    LLAVEINI        shift and go to state 19
+
+    statement                      shift and go to state 80
+    assignment                     shift and go to state 8
+    println_stmt                   shift and go to state 9
+    if_stmt                        shift and go to state 10
+    while_stmt                     shift and go to state 11
+    block                          shift and go to state 12
+
+state 69
+
+    (22) while_stmt -> WHILE PARENINI expression PARENFIN . statement
+    (11) statement -> . assignment PUNTOCOM
+    (12) statement -> . println_stmt PUNTOCOM
+    (13) statement -> . if_stmt
+    (14) statement -> . while_stmt
+    (15) statement -> . block
+    (16) assignment -> . IDENT ASIGN expression
+    (17) println_stmt -> . PRINTLN PARENINI PARENFIN
+    (18) println_stmt -> . PRINTLN PARENINI arg_list PARENFIN
+    (21) if_stmt -> . IF PARENINI expression PARENFIN statement
+    (22) while_stmt -> . WHILE PARENINI expression PARENFIN statement
+    (23) block -> . LLAVEINI items LLAVEFIN
+
+    IDENT           shift and go to state 7
+    PRINTLN         shift and go to state 16
+    IF              shift and go to state 17
+    WHILE           shift and go to state 18
+    LLAVEINI        shift and go to state 19
+
+    statement                      shift and go to state 81
+    assignment                     shift and go to state 8
+    println_stmt                   shift and go to state 9
+    if_stmt                        shift and go to state 10
+    while_stmt                     shift and go to state 11
+    block                          shift and go to state 12
+
+state 70
+
+    (6) declaration -> type IDENT ASIGN expression PUNTOCOM .
+
+    FLOAT           reduce using rule 6 (declaration -> type IDENT ASIGN expression PUNTOCOM .)
+    BOOLEAN         reduce using rule 6 (declaration -> type IDENT ASIGN expression PUNTOCOM .)
+    CHAR            reduce using rule 6 (declaration -> type IDENT ASIGN expression PUNTOCOM .)
+    IDENT           reduce using rule 6 (declaration -> type IDENT ASIGN expression PUNTOCOM .)
+    PRINTLN         reduce using rule 6 (declaration -> type IDENT ASIGN expression PUNTOCOM .)
+    IF              reduce using rule 6 (declaration -> type IDENT ASIGN expression PUNTOCOM .)
+    WHILE           reduce using rule 6 (declaration -> type IDENT ASIGN expression PUNTOCOM .)
+    LLAVEINI        reduce using rule 6 (declaration -> type IDENT ASIGN expression PUNTOCOM .)
+    $end            reduce using rule 6 (declaration -> type IDENT ASIGN expression PUNTOCOM .)
+    LLAVEFIN        reduce using rule 6 (declaration -> type IDENT ASIGN expression PUNTOCOM .)
+
+
+state 71
+
+    (25) logic_or -> logic_or OP_LOG logic_and .
+    (27) logic_and -> logic_and . OP_LOG logic_not
+
+    OP_LOG          reduce using rule 25 (logic_or -> logic_or OP_LOG logic_and .)
+    PUNTOCOM        reduce using rule 25 (logic_or -> logic_or OP_LOG logic_and .)
+    PARENFIN        reduce using rule 25 (logic_or -> logic_or OP_LOG logic_and .)
+    COMA            reduce using rule 25 (logic_or -> logic_or OP_LOG logic_and .)
+
+  ! OP_LOG          [ shift and go to state 58 ]
+
+
+state 72
+
+    (27) logic_and -> logic_and OP_LOG logic_not .
+
+    OP_LOG          reduce using rule 27 (logic_and -> logic_and OP_LOG logic_not .)
+    PUNTOCOM        reduce using rule 27 (logic_and -> logic_and OP_LOG logic_not .)
+    PARENFIN        reduce using rule 27 (logic_and -> logic_and OP_LOG logic_not .)
+    COMA            reduce using rule 27 (logic_and -> logic_and OP_LOG logic_not .)
+
+
+state 73
+
+    (31) rel -> rel OP_REL add .
+    (33) add -> add . OP_ARIT mul
+
+    OP_REL          reduce using rule 31 (rel -> rel OP_REL add .)
+    OP_LOG          reduce using rule 31 (rel -> rel OP_REL add .)
+    PUNTOCOM        reduce using rule 31 (rel -> rel OP_REL add .)
+    PARENFIN        reduce using rule 31 (rel -> rel OP_REL add .)
+    COMA            reduce using rule 31 (rel -> rel OP_REL add .)
+    OP_ARIT         shift and go to state 60
+
+
+state 74
+
+    (33) add -> add OP_ARIT mul .
+    (35) mul -> mul . OP_ARIT unary
+
+    OP_ARIT         reduce using rule 33 (add -> add OP_ARIT mul .)
+    OP_REL          reduce using rule 33 (add -> add OP_ARIT mul .)
+    OP_LOG          reduce using rule 33 (add -> add OP_ARIT mul .)
+    PUNTOCOM        reduce using rule 33 (add -> add OP_ARIT mul .)
+    PARENFIN        reduce using rule 33 (add -> add OP_ARIT mul .)
+    COMA            reduce using rule 33 (add -> add OP_ARIT mul .)
+
+  ! OP_ARIT         [ shift and go to state 62 ]
+
+
+state 75
+
+    (35) mul -> mul OP_ARIT unary .
+
+    OP_ARIT         reduce using rule 35 (mul -> mul OP_ARIT unary .)
+    OP_REL          reduce using rule 35 (mul -> mul OP_ARIT unary .)
+    OP_LOG          reduce using rule 35 (mul -> mul OP_ARIT unary .)
+    PUNTOCOM        reduce using rule 35 (mul -> mul OP_ARIT unary .)
+    PARENFIN        reduce using rule 35 (mul -> mul OP_ARIT unary .)
+    COMA            reduce using rule 35 (mul -> mul OP_ARIT unary .)
+
+
+state 76
+
+    (43) primary -> PARENINI expression PARENFIN .
+
+    OP_ARIT         reduce using rule 43 (primary -> PARENINI expression PARENFIN .)
+    OP_REL          reduce using rule 43 (primary -> PARENINI expression PARENFIN .)
+    OP_LOG          reduce using rule 43 (primary -> PARENINI expression PARENFIN .)
+    PUNTOCOM        reduce using rule 43 (primary -> PARENINI expression PARENFIN .)
+    PARENFIN        reduce using rule 43 (primary -> PARENINI expression PARENFIN .)
+    COMA            reduce using rule 43 (primary -> PARENINI expression PARENFIN .)
+
+
+state 77
+
+    (44) primary -> MIN PARENINI expression . COMA expression PARENFIN
+
+    COMA            shift and go to state 82
+
+
+state 78
+
+    (45) primary -> CEIL PARENINI expression . PARENFIN
+
+    PARENFIN        shift and go to state 83
+
+
+state 79
+
+    (19) arg_list -> arg_list COMA expression .
+
+    PARENFIN        reduce using rule 19 (arg_list -> arg_list COMA expression .)
+    COMA            reduce using rule 19 (arg_list -> arg_list COMA expression .)
+
+
+state 80
+
+    (21) if_stmt -> IF PARENINI expression PARENFIN statement .
+
+    FLOAT           reduce using rule 21 (if_stmt -> IF PARENINI expression PARENFIN statement .)
+    BOOLEAN         reduce using rule 21 (if_stmt -> IF PARENINI expression PARENFIN statement .)
+    CHAR            reduce using rule 21 (if_stmt -> IF PARENINI expression PARENFIN statement .)
+    IDENT           reduce using rule 21 (if_stmt -> IF PARENINI expression PARENFIN statement .)
+    PRINTLN         reduce using rule 21 (if_stmt -> IF PARENINI expression PARENFIN statement .)
+    IF              reduce using rule 21 (if_stmt -> IF PARENINI expression PARENFIN statement .)
+    WHILE           reduce using rule 21 (if_stmt -> IF PARENINI expression PARENFIN statement .)
+    LLAVEINI        reduce using rule 21 (if_stmt -> IF PARENINI expression PARENFIN statement .)
+    $end            reduce using rule 21 (if_stmt -> IF PARENINI expression PARENFIN statement .)
+    LLAVEFIN        reduce using rule 21 (if_stmt -> IF PARENINI expression PARENFIN statement .)
+
+
+state 81
+
+    (22) while_stmt -> WHILE PARENINI expression PARENFIN statement .
+
+    FLOAT           reduce using rule 22 (while_stmt -> WHILE PARENINI expression PARENFIN statement .)
+    BOOLEAN         reduce using rule 22 (while_stmt -> WHILE PARENINI expression PARENFIN statement .)
+    CHAR            reduce using rule 22 (while_stmt -> WHILE PARENINI expression PARENFIN statement .)
+    IDENT           reduce using rule 22 (while_stmt -> WHILE PARENINI expression PARENFIN statement .)
+    PRINTLN         reduce using rule 22 (while_stmt -> WHILE PARENINI expression PARENFIN statement .)
+    IF              reduce using rule 22 (while_stmt -> WHILE PARENINI expression PARENFIN statement .)
+    WHILE           reduce using rule 22 (while_stmt -> WHILE PARENINI expression PARENFIN statement .)
+    LLAVEINI        reduce using rule 22 (while_stmt -> WHILE PARENINI expression PARENFIN statement .)
+    $end            reduce using rule 22 (while_stmt -> WHILE PARENINI expression PARENFIN statement .)
+    LLAVEFIN        reduce using rule 22 (while_stmt -> WHILE PARENINI expression PARENFIN statement .)
+
+
+state 82
+
+    (44) primary -> MIN PARENINI expression COMA . expression PARENFIN
+    (24) expression -> . logic_or
+    (25) logic_or -> . logic_or OP_LOG logic_and
+    (26) logic_or -> . logic_and
+    (27) logic_and -> . logic_and OP_LOG logic_not
+    (28) logic_and -> . logic_not
+    (29) logic_not -> . OP_LOG logic_not
+    (30) logic_not -> . rel
+    (31) rel -> . rel OP_REL add
+    (32) rel -> . add
+    (33) add -> . add OP_ARIT mul
+    (34) add -> . mul
+    (35) mul -> . mul OP_ARIT unary
+    (36) mul -> . unary
+    (37) unary -> . OP_ARIT unary
+    (38) unary -> . primary
+    (39) primary -> . IDENT
+    (40) primary -> . NUM
+    (41) primary -> . BOOL
+    (42) primary -> . CHARLIT
+    (43) primary -> . PARENINI expression PARENFIN
+    (44) primary -> . MIN PARENINI expression COMA expression PARENFIN
+    (45) primary -> . CEIL PARENINI expression PARENFIN
+
+    OP_LOG          shift and go to state 34
+    OP_ARIT         shift and go to state 39
+    IDENT           shift and go to state 31
+    NUM             shift and go to state 43
+    BOOL            shift and go to state 44
+    CHARLIT         shift and go to state 45
+    PARENINI        shift and go to state 46
+    MIN             shift and go to state 47
+    CEIL            shift and go to state 48
+
+    expression                     shift and go to state 84
+    logic_or                       shift and go to state 33
+    logic_and                      shift and go to state 35
+    logic_not                      shift and go to state 36
+    rel                            shift and go to state 37
+    add                            shift and go to state 38
+    mul                            shift and go to state 40
+    unary                          shift and go to state 41
+    primary                        shift and go to state 42
+
+state 83
+
+    (45) primary -> CEIL PARENINI expression PARENFIN .
+
+    OP_ARIT         reduce using rule 45 (primary -> CEIL PARENINI expression PARENFIN .)
+    OP_REL          reduce using rule 45 (primary -> CEIL PARENINI expression PARENFIN .)
+    OP_LOG          reduce using rule 45 (primary -> CEIL PARENINI expression PARENFIN .)
+    PUNTOCOM        reduce using rule 45 (primary -> CEIL PARENINI expression PARENFIN .)
+    PARENFIN        reduce using rule 45 (primary -> CEIL PARENINI expression PARENFIN .)
+    COMA            reduce using rule 45 (primary -> CEIL PARENINI expression PARENFIN .)
+
+
+state 84
+
+    (44) primary -> MIN PARENINI expression COMA expression . PARENFIN
+
+    PARENFIN        shift and go to state 85
+
+
+state 85
+
+    (44) primary -> MIN PARENINI expression COMA expression PARENFIN .
+
+    OP_ARIT         reduce using rule 44 (primary -> MIN PARENINI expression COMA expression PARENFIN .)
+    OP_REL          reduce using rule 44 (primary -> MIN PARENINI expression COMA expression PARENFIN .)
+    OP_LOG          reduce using rule 44 (primary -> MIN PARENINI expression COMA expression PARENFIN .)
+    PUNTOCOM        reduce using rule 44 (primary -> MIN PARENINI expression COMA expression PARENFIN .)
+    PARENFIN        reduce using rule 44 (primary -> MIN PARENINI expression COMA expression PARENFIN .)
+    COMA            reduce using rule 44 (primary -> MIN PARENINI expression COMA expression PARENFIN .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for OP_LOG in state 35 resolved as shift
+WARNING: shift/reduce conflict for OP_ARIT in state 40 resolved as shift
